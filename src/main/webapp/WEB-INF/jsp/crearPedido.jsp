@@ -12,5 +12,20 @@
 </head>
 <body>
 <h1>Crear pedidos</h1>
+
+<form method="post" action="CrearPedidoServlet">
+    <label>Cantidad</label>
+    <input name="cantidad" type="text">
+    <label>Fecha que se realizo</label>
+    <input type="date" name="fecha">
+    <label>Cliente</label>
+    <input type="number" name="id_cliente">
+    <label>Comercial</label>
+    <input type="number" name="id_comercial">
+    <button type="submit">Enviar</button>
+
+</form>
+
+
 </body>
 </html>

@@ -23,13 +23,13 @@ public class UtilServlet {
 
             //UTILIZO LOS CONTRACTS DE LA CLASE Objects PARA LA VALIDACIÓN
             //             v---- LANZA NullPointerException SI EL PARÁMETRO ES NULL
-            Objects.requireNonNull(request.getParameter("total"));
+            Objects.requireNonNull(request.getParameter("cantidad"));
             //CONTRACT nonBlank..
             //UTILIZO isBlank SOBRE EL PARÁMETRO DE TIPO String PARA CHEQUEAR QUE NO ES UN PARÁMETRO VACÍO "" NI CADENA TODO BLANCOS "    "
             //          |                                EN EL CASO DE QUE SEA BLANCO LO RECIBIDO, LANZO UNA EXCEPCIÓN PARA INVALIDAR EL PROCESO DE VALIDACIÓN
             //          -------------------------v                      v---------------------------------------|
-            if (request.getParameter("total").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
-            total = request.getParameter("total");
+            if (request.getParameter("cantidad").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
+            total = request.getParameter("cantidad");
 
             Integer total2 = Integer.parseInt(total);
 
@@ -42,12 +42,12 @@ public class UtilServlet {
             //UTILIZO LOS CONTRACTS DE LA CLASE Objects PARA LA VALIDACIÓN
             //             v---- LANZA NullPointerException SI EL PARÁMETRO ES NULL
             //Objects.requireNonNull(request.getParameter("localidad"));
-            Objects.requireNonNull(request.getParameter("total"));
+            Objects.requireNonNull(request.getParameter("cantidad"));
             //CONTRACT nonBlank
             //UTILIZO isBlank SOBRE EL PARÁMETRO DE TIPO String PARA CHEQUEAR QUE NO ES UN PARÁMETRO VACÍO "" NI CADENA TODO BLANCOS "    "
             //          |                                EN EL CASO DE QUE SEA BLANCO LO RECIBIDO, LANZO UNA EXCEPCIÓN PARA INVALIDAR EL PROCESO DE VALIDACIÓN
             //          -------------------------v                      v---------------------------------------|
-            if (request.getParameter("localidad").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
+
            // localidad = request.getParameter("localidad");
 
             return Optional.of(new Pedido(-1, total2, fecha, id_cliente, id_comercial));

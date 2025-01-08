@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(name= "CrearPedidoServlet", value= "/CrearPedidoServlet")
+@WebServlet(name = "CrearPedidoServlet", value = "/CrearPedidoServlet")
 public class CrearPedidoServlet extends HttpServlet {
 
     private PedidoDao pedidoDao = new pedidoDaoImpl();
@@ -22,7 +22,7 @@ public class CrearPedidoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/META-INF/jsp/crearPedido.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/crearPedido.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -43,8 +43,11 @@ public class CrearPedidoServlet extends HttpServlet {
             request.setAttribute("pedidos", listado);
 
             request.setAttribute("newPedidoID", pedido.getId());
+            System.out.println("Creado el pedido");
 
-            requestDispatcher = request.getRequestDispatcher("crearPedido.jsp");
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pedidoCreado.jsp");
+        }else{
+            System.out.println("<h2>No se encontro nada</h2>");
         }
 
 

@@ -24,7 +24,7 @@
 
 <div>
     <div>
-        <form method="get" action="CrearPedido">
+        <form method="get" action="CrearPedidoServlet">
             <input type="submit" value="Crear Pedido">
         </form>
     </div>
