@@ -27,7 +27,7 @@ public class pedidoDaoImpl extends AbstractDAOPedidoImpl implements PedidoDao{
             //1 alternativas comentadas:
             //Ver también, AbstractDAOImpl.executeInsert ...
             //Columna fabricante.codigo es clave primaria auto_increment, por ese motivo se omite de la sentencia SQL INSERT siguiente.
-            ps = conn.prepareStatement("INSERT INTO pedido (total, fecha, id_cliente, id_comercial, categoria) VALUES (?, ? , ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            ps = conn.prepareStatement("INSERT INTO pedido (total, fecha, id_cliente, id_comercial) VALUES (?, ? , ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
             int idx = 1;
             ps.setDouble(idx++, pedido.getTotal());
@@ -38,7 +38,7 @@ public class pedidoDaoImpl extends AbstractDAOPedidoImpl implements PedidoDao{
 
             int rows = ps.executeUpdate();
             if (rows == 0)
-                System.out.println("INSERT de socio con 0 filas insertadas.");
+                System.out.println("INSERT de pedido con 0 filas insertadas.");
 
             rsGenKeys = ps.getGeneratedKeys();
             if (rsGenKeys.next())

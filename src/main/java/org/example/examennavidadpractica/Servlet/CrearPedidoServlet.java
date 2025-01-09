@@ -43,9 +43,12 @@ public class CrearPedidoServlet extends HttpServlet {
             request.setAttribute("pedidos", listado);
 
             request.setAttribute("newPedidoID", pedido.getId());
-            System.out.println("Creado el pedido");
 
-            requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pedidoCreado.jsp");
+
+            requestDispatcher = request.getRequestDispatcher("/WEB-INF/jsp/listadoClienteB.jsp");
+            requestDispatcher.forward(request, response);
+
+
         }else{
             System.out.println("<h2>No se encontro nada</h2>");
         }
